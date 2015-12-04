@@ -1,0 +1,229 @@
+\documentclass[10pt, letterpaper, oneside]{article}
+ 
+\usepackage{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[dvipsnames]{color}
+\usepackage{baskervald}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{hyperref}
+ 
+\pagestyle{plain}
+ 
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in,headheight=0in,headsep=0in,footskip=.3in}
+ 
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0in}
+ 
+% Name and contact information
+\newcommand{\name}{Victor Robertson}
+\newcommand{\website}{\href{http://vmrob.com}{http://vmrob.com}}
+\newcommand{\github}{https://github.com/vmrob}
+\newcommand{\linkedin}{http://linkedin.com/in/vmrob}
+\newcommand{\socareers}{http://careers.stackoverflow.com/vmrob}
+\newcommand{\street}{362 West Glenn Ave}
+\newcommand{\city}{Auburn AL}
+\newcommand{\postal}{36830}
+\newcommand{\phone}{(256) 724-2282}
+\newcommand{\email}{\href{mailto:victor.robertson.iv@gmail.com}{victor.robertson.iv@gmail.com}}
+ 
+% Colors
+\definecolor{light-grey}{gray}{0.8}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Commands and Environments for resume
+ 
+% A horizontal rule for sections
+\newcommand{\HRule}[2]{\textcolor{#1}{\rule{\linewidth}{#2}}}
+ 
+% A section tile command
+\newcommand{\sectiontitle}[1]{\begin{minipage}{\textwidth}\HRule{black}{0.25mm}\vspace{-10pt}\begin{center}\Large\MakeUppercase{#1}\end{center}\end{minipage}\\\HRule{light-grey}{0.15mm}\vspace{\baselineskip}}
+ 
+% An environment for a resume section
+\newenvironment{ressection}[1]{
+  \sectiontitle{#1}}
+  {\vspace{0.5\baselineskip}}
+ 
+% A ressection that has to be on one page, awards, education etc
+\newenvironment{tightressection}[1]{
+  \begin{minipage}{\textwidth}
+  \sectiontitle{#1}}
+  {\vspace{2\baselineskip}\end{minipage}}
+ 
+% A column if there is a two columned section such as in awards
+\newenvironment{reslist}{
+  \begin{minipage}{\textwidth}
+    \begin{itemize}[noitemsep,nolistsep]}
+  {\end{itemize}
+    \end{minipage}}
+ 
+% A resitem is a simple list element
+\newcommand{\resitem}[1]{
+    \vspace{2pt}
+    \item \begin{flushleft} #1 \end{flushleft}
+}
+
+% An entry for memberships
+% Arg1: Board
+% Arg2: Position
+% Arg3: Date
+\newcommand{\boardentry}[3]{
+  \begin{minipage}{\textwidth}
+  \vspace{-9pt}
+  \textbf{#1}\\
+  \textit{#2}, \textit{#3}\\
+  \vspace{0.5\baselineskip}
+  \end{minipage}
+}
+ 
+ 
+% An entry for education
+% Arg1: Institution
+% Arg2: Program
+% Arg3: Dates
+\newcommand{\resedentry}[3]{
+  \begin{minipage}{\textwidth}
+  \vspace{-10pt}
+  \textbf{#1}\\
+  \textit{#2}\hfill\textcolor{light-grey}{#3}\\
+  \vspace{0.5\baselineskip}
+  \end{minipage}
+}
+ 
+% Resentry defines a position
+% Arg1: Title
+% Arg2: Date
+% Arg3: Website
+\newcommand{\resentryheader}[3]{
+    \vspace{-5pt}
+    \textbf{#1} - #2\hspace{\stretch{1}}\textcolor{light-grey}{#3}\\
+}
+ 
+% This is a resume entry with a header and bullet items
+\newenvironment{resentry}[3]{
+  \begin{minipage}{\textwidth}
+    \resentryheader{#1}{#2}{#3}
+        \vspace{-\baselineskip}
+    \begin{itemize}[noitemsep,nolistsep]
+}{
+    \end{itemize}
+        \vspace{\baselineskip}
+        \end{minipage}
+}
+
+% Resentry defines a position
+% Arg1: Title
+\newcommand{\restechentryheader}[1]{
+    \vspace{-5pt}
+    \textbf{#1}\\
+}
+
+% This is a resume entry with a header and bullet items
+\newenvironment{restechentry}[1]{
+  \begin{minipage}{\textwidth}
+    \restechentryheader{#1}
+        \vspace{-\baselineskip}
+    \begin{itemize}[noitemsep,nolistsep]
+}{
+    \end{itemize}
+        \vspace{\baselineskip}
+        \end{minipage}
+}
+ 
+%%%%%%%%%%%%
+% Begin The Resume
+ 
+\begin{document}
+ 
+\begin{tabularx}{\linewidth}{X r}
+\multirow{3}{*}{\Huge\textbf{\name}} & \\& \email \\& \website \\& \phone \\\\
+\end{tabularx}\\
+
+\begin{ressection}{Personal Statement}
+    I'm a highly self-motivated programmer, tinkerer, and science/technology enthusiast looking for a career building excellent software through innovative design and rigorous testing. I seek to never compromise on the user experience regardless of whether my user is an end user or a fellow developer. I strive to produce innovative and idiomatic APIs for my libraries and simple, consistent interfaces for my end users.\\
+
+    I believe that actions speak louder than words and that education in this field comes from self-motivated independent study, not from classrooms or certifications. I believe that the drive to succeed, an internet connection, and coffee is all that's required to build a product that people enjoy but a solid understanding of the architecture, a well thought-out design, and the application of beauty through simplicity is what makes that product valuable.\\
+
+    I want to be the driving force behind those valuable products.
+\end{ressection}
+ 
+\begin{ressection}{Projects}
+
+  \begin{resentry}{Manaburn}{Unreleased}{Dec 2013 --- Present}
+    \resitem{Multiplatform realtime multiplayer desktop game}
+    \resitem{Mac/Win client connected to Unix server backend}
+    \resitem{Portable C++11/C++1y, tool scripts written in Python}
+    \resitem{Boost, Cinder, OpenGL, OpenSSL, and Redis libraries}
+    \resitem{Ubuntu server running Jenkins CI with Windows 2008 Server slaves}
+    \resitem{Custom unit testing framework (tinytest, see below)}
+    \resitem{Phabricator and Arcanist for code review}
+    \resitem{Agile development strategies and Pivotal Tracker for story/sprint planning}
+  \end{resentry}
+ 
+  \begin{resentry}{tinytest}{\href{https://github.com/acronism/tinytest}{https://github.com/acronism/tinytest}}{Dec 2013 --- Present}
+    \resitem{Lightweight unit testing framework}
+    \resitem{Portable C++11}
+    \resitem{Support for Clang, GCC, and MSVC compilers}
+    \resitem{Support for Make, Boost Build, and VS2013 build systems}
+    \resitem{Expressive testing using the magic of static initialization and lambda functions}
+  \end{resentry}
+
+  \begin{resentry}{AcidDB}{\href{https://github.com/vmrob/aciddb}{https://github.com/vmrob/aciddb}}{April 2014 --- April 2014}
+    \resitem{Persistant NoSQL database}
+    \resitem{Portable C++11/C++1y}
+    \resitem{C++/Java clients (Java currently in development)}
+    \resitem{boost::asio and boost::serialization libraries}
+    \resitem{Designed for a class project with an emphasis on design correctness and waterfall methodologies}
+  \end{resentry}
+
+  \begin{resentry}{SBSManip}{\href{https://github.com/vmrob/sbsmanip}{https://github.com/vmrob/sbsmanip}}{May 2014 --- Present}
+    \resitem{CLI application for manipulating Space Engineers savefiles}
+    \resitem{Python, distributed via PyPi}
+    \resitem{Two components: package with API for modifying savefile data and CLI application}
+    \resitem{Designed to work well in an automation context}
+    \resitem{Python ElementTree for XML manipulation and parseargs for argument parsing}
+  \end{resentry}
+ 
+\end{ressection}
+ 
+% Open Source Contributions
+\begin{ressection}{Open Source Contributions}
+  \begin{resentry}{Homebrew Cask}{\href{https://github.com/caskroom/homebrew-cask}{https://github.com/caskroom/homebrew-cask}}{April 2014}
+    \resitem{Package manager for closed source / GUI applications that don't belong in \underline{\href{http://brew.sh/}{Homebrew}}}
+    \resitem{Added support for Adobe AIR applications and several casks (installers) for other applications}
+    \resitem{Link to relevant commits: \underline{\href{https://github.com/caskroom/homebrew-cask/commits?author=vmrob}{Github}}}
+  \end{resentry}
+
+\end{ressection}
+
+% Technical Skills
+\begin{tightressection}{Technical Skills}
+  \begin{restechentry}{Languages}
+    \resitem{C++, C++11, C++1y - strong emphasis on template programming and multithreading}
+    \resitem{Python - Emphasis on object oriented design}
+    \resitem{Bash/Shell Scripting - functional patterns for utility and daemon scripts}
+    \resitem{Batch Scripting - utility scripts}
+    \resitem{LaTeX typesetting}
+  \end{restechentry}
+  \begin{restechentry}{Frameworks}
+    \resitem{Boost C++ - Asynchronous I/O, Serialization, Program options, Logging}
+    \resitem{Python Pip and PyPi - Package development/distribution}
+    \resitem{Amazon AWS - EC2, S3, AWS command line utility}
+    \resitem{Redis, PostgreSQL}
+  \end{restechentry}
+  \begin{restechentry}{Project Management}
+    \resitem{Jenkins CI - Setup/management, Multi-server master/slave, Git integration}
+    \resitem{Phabricator Code Review - Setup/Management}
+    \resitem{Pivotal Tracker}
+  \end{restechentry}
+\end{tightressection}
+ 
+% Education
+\vspace{-15pt}
+\begin{tightressection}{education}
+  \resedentry{Auburn University}{Bachelor of Engineering (Software Engineering) (3.4 MGPA)}{Expected May 2015}
+\end{tightressection}
+ 
+\end{document}
