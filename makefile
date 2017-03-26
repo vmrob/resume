@@ -5,7 +5,7 @@ resume: $(PDF)
 
 $(PDF): resume.tex
 	mkdir -p $(OBJ)
-	latex -output-format=pdf -interaction=batchmode -output-directory=$(OBJ) $<
+	latex -output-format=pdf -interaction=nonstopmode -output-directory=$(OBJ) $<
 	mv $(OBJ)/$(PDF) .
 
 clean:
