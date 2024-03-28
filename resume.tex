@@ -21,7 +21,6 @@
 
 % Name and contact information
 \newcommand{\name}{Victor Robertson}
-\newcommand{\website}{\href{http://vmrob.com}{vmrob.com}}
 \newcommand{\email}{\href{mailto:victor.robertson.iv@gmail.com}{victor.robertson.iv@gmail.com}}
 
 % Colors
@@ -46,6 +45,13 @@
   \begin{minipage}{\textwidth}
   \sectiontitle{#1}}
   {\vspace{2\baselineskip}\end{minipage}}
+
+% A ressection with less vertical space that has to be on one page, awards, education etc
+\newenvironment{tightsmallressection}[1]{
+  \begin{minipage}{\textwidth}
+  \sectiontitle{#1}
+  \vspace{-2\baselineskip}}
+  {\vspace{0.5\baselineskip}\end{minipage}}
 
 % A column if there is a two columned section such as in awards
 \newenvironment{reslist}{
@@ -134,145 +140,52 @@
 
 \begin{tabularx}{\linewidth}{X r}\multirow{3}{*}
   {\Huge\textbf{\name}} & \email   \\
-                        & \website \\
+                        & \\
                         & \\
 \end{tabularx}\\
 
-\begin{ressection}{Personal Statement}
-    I'm a highly self-motivated programmer, tinkerer, and science/technology enthusiast looking for a career building elegant, scalable, and high performance software through innovative design and rigorous quality assurance. I strongly believe in clean, self documenting code, automated tests, continuous integration, serious security, a strong design philosophy, and a rigorous adherence to process but never to let that process become a burden.\\
-\end{ressection}
-
-\begin{tightressection}{Concepts}
-  \begin{reslist}
+\begin{tightsmallressection}{Technical Skills}
   \begin{multicols}{2}
-    \resitem{Object Oriented and Functional Programming}
-    \resitem{Concurrency, Parallelism, and Optimization}
-    \resitem{Version Control}
-    \resitem{Software Engineering Philosophy}
-    \resitem{Continuous Integration}
-    \resitem{Quality Assurance \& Automation}
-    \resitem{"Big Data" Lambda Architecture}
-    \resitem{Infrastructure Automation}
-    \resitem{Virtualization and Containerization}
-    \resitem{Security and Cryptography}
+    \begin{reslist}
+      \resitem{C++11, C++14, C++17}
+      \resitem{Python 2, Python 3}
+      \resitem{Golang}
+      \resitem{Zsh, Bash}
+      \resitem{Git, SVN}
+      \resitem{Bazel, Make, GCC, Clang}
+	\end{reslist}
+    \begin{reslist}
+      \resitem{AWS, GCP}
+      \resitem{Docker, Vagrant, VirtualBox, QEMU, VMWare}
+      \resitem{BigQuery, PostgreSQL, Redis}
+      \resitem{Linux perf, Xcode, Instruments}
+      \resitem{GitHub, Phabricator, Buildkite, Jenkins, Travis CI}
+	\end{reslist}
   \end{multicols}
-  \end{reslist}
-\end{tightressection}
+\end{tightsmallressection}
 
 \begin{tightressection}{Organizations}
+  \begin{resentry}{Cruise LLC.}{Principal Software Engineer}{July 2017 --- Current}
+    \resitem{Technical lead over Infrastructure, a 100+ person VP-level department}
+    \resitem{Designed, prototyped, and led cross-functional team to automate the identification and triage of failing AV code assertions, eliminated failure category and enabled fleet scaling goals}
+    \resitem{Migrated the Cruise AV monorepo to a remote build cluster, reduced average build time by 90\%}
+    \resitem{Designed cloud-based dev environment to replace physical desktops, enabled remote work for 1200 MAU}
+    \resitem{Designed and prototyped next-gen buildroot-based toolchain and kickstarted a multi-year migration effort, unlocked Cruise-wide hardware transition goals}
+    \resitem{Designed and prototyped CI source caching infrastructure, reduced GitHub Enterprise CPU load by 80\%}
+    \resitem{Led 2022 \& 2023 end-of-year cost savings initiatives, reduced cloud spend by \$6.85M/yr with \$1.7M/yr in personal contributions}
+    \resitem{Authored on-vehicle coding standards and error handling guidance for AV/AI developers, enabled self-discovery of best practices}
+    \resitem{Personally authored 1,900+ code contributions (PRs) to the Cruise AV monorepo}
+  \end{resentry}
   \begin{resentry}{BitTorrent, Inc.}{Software Engineer}{Feb 2016 --- April 2017}
-    \resitem{Performed optimizations on the BitTorrent Live protocol to reduce total network IO and decrease CPU overhead by 30\%}
-    \resitem{Heavily optimized large-scale p2p simulations for network performance and stability}
-    \resitem{Statistic analysis of simulation results for protocol iteration and testing}
-    \resitem{Profiled and optimized client/server applications to improve CPU and memory IO performance}
-    \resitem{Wrote video transcoding pipeline using FFmpeg/x264/OpenH264 to serve continuous 24/7 video}
-    \resitem{Assisted broadcaster/teleports in frame/NALU-level video diagnostics to increase reliability}
-    \resitem{Managed internal business relations to enhance in developer productivity}
-    \resitem{Established CI and QA process for multiplatform client video streaming application}
-    \resitem{Managed multiple migrations between different CI systems}
-    \resitem{Established an internal Security and Infosec {\lq}Guild{\rq} for training and education on security practices}
-    \resitem{Performed lightweight internal audits of security practices for internal codebases and infrastructure}
-    \resitem{Performed AWS cost analysis and purchasing resulting in \$56,000 saved annually}
+    \resitem{Contributed to cloud-based video transcoding pipeline to serve continuous 24/7 video}
+    \resitem{Implemented optimizations on the BitTorrent Live protocol, reduced network IO and CPU overhead by 30\%}
+    \resitem{Optimized large-scale p2p simulations for network performance and stability, enabled 10k+ peer sims}
   \end{resentry}
   \begin{resentry}{eFolder, Inc.}{Software Engineer}{June 2014 --- Feb 2016}
-    \resitem{Established developer workflow using git-flow and code review where none was present}
+    \resitem{Established developer workflow and code review where none was present}
     \resitem{Setup Phabricator and Jenkins with autoscaling EC2 build bots for CI}
-    \resitem{Automated builds for a highly disorganized, multiplatform C++ application}
     \resitem{Wrote and released the eFolder BDR Builder---an installer for the BDR stack}
-    \resitem{Windows server automation and monitoring via PowerShell, WMI, and IPMI}
-    \resitem{Automated software provisioning of Windows Server 2012 BDR appliance}
-    \resitem{Planned scalable lambda architecture for data analysis}
   \end{resentry}
 \end{tightressection}
-
-\begin{tightressection}{Projects}
-  \begin{resentry}{BitTorrent Live App}{BitTorrent, Inc.}{Feb 2016 --- March 2016}
-    \resitem{iOS, tvOS, Android, FireTV, and Mac C++, single-codebase, video streaming client}
-    \resitem{Custom UI framework built on SDL}
-    \resitem{Custom UDP-based network protocol (BitTorrent Live) to handle live streaming of video}
-    \resitem{Custom C++ package manager for multiplatform/multiarchitecture builds}
-    \resitem{Parameterized compile-time configurations for development/staging/production}
-    \resitem{Primarily responsible for p2p, video processing, and CI/QA}
-  \end{resentry}
-  \begin{resentry}{BitTorrent Live Infrastructure}{BitTorrent, Inc.}{Feb 2016 --- March 2016}
-    \resitem{AWS-powered highly scalable video processing pipeline from ingest to client rendering}
-    \resitem{Extensible libraries to share code between backend and client for lightweight applications}
-    \resitem{Simple and robust deployments using CloudFormation and {\lq}infrastructure as code{\rq}}
-    \resitem{100\% uptime deployments utilizing connection draining and DNS rotations}
-    \resitem{OAuth authentication for web mangement, AWS IAM permissions for ops management}
-    \resitem{Primarily responsible for p2p and video transcoding for client}
-  \end{resentry}
-  \begin{resentry}{BDR Builder}{eFolder, Inc.}{Dec 2014 --- Nov 2015}
-    \resitem{Provisions the eFolder BDR software stack on a generic Windows Server}
-    \resitem{Automation of a 300+ step manual process}
-    \resitem{InnoSetup installer framework}
-    \resitem{Unit tested and regression tested}
-    \resitem{Vagrant for reproducible test environments}
-    \resitem{Parameterized builds for easy inclusion of specific components}
-    \resitem{PowerShell build scripts and post-installation tests}
-    \resitem{Responsible for the entire project start to finish}
-  \end{resentry}
-  \begin{resentry}{Online Backup Manager}{eFolder, Inc.}{June 2014 --- Jan 2015}
-    \resitem{Multi-platform backup for files and folders}
-    \resitem{Tasked to bring the unmaintained application to a buildable state}
-    \resitem{Migrated repository from SVN to Git while maintaining branches and tags}
-    \resitem{Introduced git-flow and code review process}
-    \resitem{Individually repaired and automated the builds for each module}
-    \resitem{Achieved fully automated builds}
-  \end{resentry}
-  \begin{resentry}{Manaburn}{Independent}{Dec 2013 --- May 2014}
-    \resitem{Multiplatform realtime multiplayer desktop game}
-    \resitem{Mac/Win client connected to Unix server backend}
-    \resitem{Portable C++11/C++14, tool scripts written in Python}
-    \resitem{Boost, Cinder, OpenGL, OpenSSL, and Redis libraries}
-    \resitem{Phabricator \& Jenkins CI}
-    \resitem{Agile development strategies and Pivotal Tracker for story/sprint planning}
-  \end{resentry}
-\end{tightressection}
-
-\begin{tightressection}{Open Source}
-  \begin{resentry}{OkUI}{\href{https://github.com/bittorrent/okui/commits?author=vmrob}{https://github.com/bittorrent/okui}}{2015-2016}
-    \resitem{C++ cross-platform UI framework optimized for performance and compatibility}
-    \resitem{Responsible for general development while utilized at BitTorrent}
-  \end{resentry}
-  \begin{resentry}{Needy}{\href{https://github.com/ccbrown/needy/commits?author=vmrob}{https://github.com/ccbrown/needy}}{2015-2016}
-    \resitem{Package manager for C++ with multi-platform/architecture capabilities}
-    \resitem{Added support for caching, additional build parameters, and general development while utilized at BitTorrent}
-  \end{resentry}
-  \begin{resentry}{Homebrew Cask}{\href{https://github.com/caskroom/homebrew-cask/commits?author=vmrob}{https://github.com/caskroom/homebrew-cask}}{April 2014}
-    \resitem{Package manager for closed source / GUI applications that don't belong in Homebrew}
-    \resitem{Added support for Adobe AIR applications and several casks (installers) for other applications}
-  \end{resentry}
-  \begin{resentry}{SBSManip}{\href{https://github.com/vmrob/sbsmanip}{https://github.com/vmrob/sbsmanip}}{May 2014}
-    \resitem{CLI application for manipulating Space Engineers savefiles}
-    \resitem{Python, distributed via PyPi}
-    \resitem{API for modifying savefile data}
-  \end{resentry}
-\end{tightressection}
-
-\begin{ressection}{Technical Skills}
-  \begin{restechentry}{Languages}
-    \resitem{C++, C++11, C++14, C++17 - strong emphasis on template metaprogramming and concurrency}
-    \resitem{Python - short scripts for tools development and larger object-oriented programs}
-    \resitem{Bash/Shell/PowerShell Scripting - driver scripts and daemons}
-    \resitem{Swift, Golang - iOS and microservice development}
-  \end{restechentry}
-  \begin{multicols}{2}
-    \begin{restechentry}{Technology}
-      \resitem{Git}
-      \resitem{Vagrant, Chef, VirtualBox, VMWare, Docker}
-      \resitem{AWS - EC2/ECS/VPC, S3, Route53, CloudFormation}
-      \resitem{Python Pip and PyPi - Package distribution}
-      \resitem{Redis, PostgreSQL}
-      \resitem{h264, FFmpeg}
-      \resitem{Xcode, Instruments, iperf, Valgrind}
-    \end{restechentry}
-    \begin{restechentry}{Project Management}
-      \resitem{Pivotal Tracker, JIRA}
-      \resitem{Phabricator, GitHub, Upsource}
-      \resitem{Jenkins CI, Travis CI, GoCD}
-    \end{restechentry}
-  \end{multicols}
-\end{ressection}
 
 \end{document}
